@@ -1,0 +1,25 @@
+body {
+    background: url("../images/bg.jpg") no-repeat;
+    background-size: cover;
+}
+
+.cell {
+    background: #127b42;
+}
+
+.icon {
+
+    padding: 5%;
+}
+
+table > tr > td {
+    padding: 0;
+    margin: 0;
+}
+
+#mainMenu {
+    border: none;
+    margin-top: 35%;
+    border-spacing: 15px;
+    border-collapse: separate;
+}

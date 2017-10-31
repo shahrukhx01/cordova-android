@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body >
+<div class="container">
+    <div id="wanted_list" class="list-group">
+        <a href="#" class="list-group-item active">
+            <h4 class="list-group-item-heading text-center">
+                Most Wanted Criminals
+            </h4>
+        </a>
+
+    </div>
+    </div>
+
+</body>
+</html>
+<script>
+
+
+
+    $.ajax({
+        url: "http://localhost:8080/E_Crime_File_Management_System/GetCriminals?callback=?",
+
+        // The name of the callback parameter, as specified by the YQL service
+
+
+        // Tell jQuery we're expecting JSONP
+        dataType: "jsonp",
+        type: 'get',
+
+        // Tell YQL what we want and that we want JSON
+        data: '',
+
+        // Work with the response
+        success: function( res ) {
+            content="";
+            res.forEach(function (entry) {
+                content += "<a href='#' class='list-group-item'> <h4 class='list-group-item-heading'>"+  entry.criminal_fname +' '+entry.criminal_last_name +"</h4> <p class='list-group-item-text'> "+entry.criminal_last_address+"</p> </a>";
+            });
+            $('#wanted_list').append(content);
+//
+        // console.clear();
+            //console.log(res);
+        }
+    });
+
+</script>
